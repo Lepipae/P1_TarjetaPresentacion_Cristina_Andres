@@ -4,13 +4,25 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.p1_tarjetapresentacion_cristina_andres.ui.theme.P1_TarjetaPresentacion_Cristina_AndresTheme
 
 class MainActivity : ComponentActivity() {
@@ -19,11 +31,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             P1_TarjetaPresentacion_Cristina_AndresTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
+                Surface() {
+                    informacionContacto(modifier = Modifier)
                 }
             }
         }
@@ -38,10 +47,67 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
+@Composable
+fun informacionContacto(modifier: Modifier) {
+
+    val imagenTelefono = painterResource(R.drawable.telefono)
+    val imagenEnviar = painterResource(R.drawable.enviar)
+    val imagenCorreo = painterResource(R.drawable.correo)
+
+    Column(verticalArrangement = Arrangement.Bottom,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.fillMaxSize().padding(10.dp)) {
+
+        Row(verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier.padding(3.dp)) {
+            Image(
+                painter = imagenTelefono,
+                contentDescription = null,
+                modifier = Modifier.height(30.dp).width(30.dp).padding(3.dp)
+            )
+
+            Text(
+                text = stringResource(R.string.telefono)
+            )
+        }
+
+        Row(verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier.padding(3.dp)) {
+
+            Image(
+                painter = imagenEnviar,
+                contentDescription = null,
+                modifier = Modifier.height(30.dp).width(30.dp).padding(3.dp)
+            )
+
+            Text(
+                text = stringResource(R.string.redesSociales)
+            )
+        }
+
+        Row(verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier.padding(3.dp)) {
+
+            Image(
+                painter = imagenCorreo,
+                contentDescription = null,
+                modifier = Modifier.height(30.dp).width(30.dp).padding(3.dp)
+            )
+
+            Text(
+                text = stringResource(R.string.correo),
+            )
+        }
+    }
+}
+
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     P1_TarjetaPresentacion_Cristina_AndresTheme {
-        Greeting("Android")
+        informacionContacto(modifier = Modifier)
     }
 }
