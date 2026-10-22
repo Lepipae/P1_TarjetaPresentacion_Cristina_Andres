@@ -20,8 +20,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -33,7 +37,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             P1_TarjetaPresentacion_Cristina_AndresTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    containerColor = colorResource(R.color.fondo)
+                ) { innerPadding ->
                     PresentacionCentral(
                         modifier = Modifier.padding(innerPadding),
                     )
@@ -51,6 +58,9 @@ class MainActivity : ComponentActivity() {
 fun PresentacionCentral(modifier: Modifier = Modifier) {
     // Recurso de imagen del logo del Virgen de la Paloma
     val image = painterResource(R.drawable.tafad_virgen_de_la_paloma_3257292920)
+    val fuente = FontFamily(
+        Font(R.font.aoboshi_one, FontWeight.Normal)
+    )
     // Columna de contenido
     Column(
         modifier = Modifier.fillMaxSize(),
@@ -64,7 +74,7 @@ fun PresentacionCentral(modifier: Modifier = Modifier) {
             Image(
                 painter = image,
                 contentDescription = stringResource(R.string.descripcionImagenPaloma),
-                modifier = Modifier.size(150.dp)
+                modifier = Modifier.size(150.dp),
             )
         }
         // Contenedor de Nombre
@@ -77,6 +87,7 @@ fun PresentacionCentral(modifier: Modifier = Modifier) {
             Text(
                 text = stringResource(R.string.nombre),
                 fontSize = 35.sp,
+                fontFamily = fuente
             )
         }
         // Contenedor de Rol
@@ -87,6 +98,7 @@ fun PresentacionCentral(modifier: Modifier = Modifier) {
             Text(
                 text = stringResource(R.string.rol),
                 fontSize = 20.sp,
+                fontFamily = fuente
             )
         }
     }
@@ -94,10 +106,12 @@ fun PresentacionCentral(modifier: Modifier = Modifier) {
 
 @Composable
 fun informacionContacto(modifier: Modifier = Modifier) {
-
+    val fuente = FontFamily(
+        Font(R.font.golos_text, FontWeight.Normal)
+    )
     val imagenTelefono = painterResource(R.drawable.telefono)
     val imagenEnviar = painterResource(R.drawable.enviar)
-    val imagenCorreo = painterResource(R.drawable.correo)
+    val imagenCorreo = painterResource(R.drawable.correo_vector)
 
     Column(verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -114,7 +128,8 @@ fun informacionContacto(modifier: Modifier = Modifier) {
 
             Text(
                 text = stringResource(R.string.telefono),
-                modifier = Modifier.width(150.dp)
+                modifier = Modifier.width(160.dp),
+                fontFamily = fuente
             )
         }
 
@@ -130,7 +145,8 @@ fun informacionContacto(modifier: Modifier = Modifier) {
 
             Text(
                 text = stringResource(R.string.redesSociales),
-                modifier = Modifier.width(150.dp)
+                modifier = Modifier.width(160.dp),
+                fontFamily = fuente
 
             )
         }
@@ -147,7 +163,8 @@ fun informacionContacto(modifier: Modifier = Modifier) {
 
             Text(
                 text = stringResource(R.string.correo),
-                modifier = Modifier.width(150.dp)
+                modifier = Modifier.width(160.dp),
+                fontFamily = fuente
             )
         }
     }
@@ -157,7 +174,10 @@ fun informacionContacto(modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     P1_TarjetaPresentacion_Cristina_AndresTheme {
-        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+        Scaffold(
+            modifier = Modifier.fillMaxSize(),
+            containerColor = colorResource(R.color.fondo)
+        ) { innerPadding ->
             PresentacionCentral(
                 modifier = Modifier.padding(innerPadding)
             )
