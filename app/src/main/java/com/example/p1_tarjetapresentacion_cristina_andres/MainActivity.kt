@@ -8,10 +8,13 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,13 +35,17 @@ class MainActivity : ComponentActivity() {
             P1_TarjetaPresentacion_Cristina_AndresTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     PresentacionCentral(
-                        modifier = Modifier,
+                        modifier = Modifier.padding(innerPadding),
+                    )
+                    informacionContacto(
+                        modifier = Modifier.padding(innerPadding),
                     )
                 }
             }
         }
     }
 }
+
 // Fragmento de presentacion central
 @Composable
 fun PresentacionCentral(modifier: Modifier = Modifier) {
@@ -82,7 +89,63 @@ fun PresentacionCentral(modifier: Modifier = Modifier) {
                 fontSize = 20.sp,
             )
         }
-        
+    }
+}
+
+@Composable
+fun informacionContacto(modifier: Modifier = Modifier) {
+
+    val imagenTelefono = painterResource(R.drawable.telefono)
+    val imagenEnviar = painterResource(R.drawable.enviar)
+    val imagenCorreo = painterResource(R.drawable.correo)
+
+    Column(verticalArrangement = Arrangement.Bottom,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = Modifier.fillMaxSize().padding(10.dp)) {
+
+        Row(verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier.padding(3.dp)) {
+            Image(
+                painter = imagenTelefono,
+                contentDescription = null,
+                modifier = Modifier.height(30.dp).width(30.dp).padding(3.dp)
+            )
+
+            Text(
+                text = stringResource(R.string.telefono)
+            )
+        }
+
+        Row(verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier.padding(3.dp)) {
+
+            Image(
+                painter = imagenEnviar,
+                contentDescription = null,
+                modifier = Modifier.height(30.dp).width(30.dp).padding(3.dp)
+            )
+
+            Text(
+                text = stringResource(R.string.redesSociales)
+            )
+        }
+
+        Row(verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.Center,
+            modifier = Modifier.padding(3.dp)) {
+
+            Image(
+                painter = imagenCorreo,
+                contentDescription = null,
+                modifier = Modifier.height(30.dp).width(30.dp).padding(3.dp)
+            )
+
+            Text(
+                text = stringResource(R.string.correo),
+            )
+        }
     }
 }
 
@@ -90,6 +153,13 @@ fun PresentacionCentral(modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     P1_TarjetaPresentacion_Cristina_AndresTheme {
-        PresentacionCentral()
+        Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+            PresentacionCentral(
+                modifier = Modifier.padding(innerPadding)
+            )
+            informacionContacto(
+                modifier = Modifier.padding(innerPadding)
+            )
+        }
     }
 }

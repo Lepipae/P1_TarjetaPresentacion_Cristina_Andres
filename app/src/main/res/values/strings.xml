@@ -3,4 +3,7 @@
     <string name="descripcionImagenPaloma">Imagen de la Paloma</string>
     <string name="nombre">Andrés López</string>
     <string name="rol">Estudiante</string>
+    <string name="telefono">+34 634 502 945</string>
+    <string name="redesSociales">\@socialTarjeta</string>
+    <string name="correo">tarjeta@gmail.com</string>
 </resources>
