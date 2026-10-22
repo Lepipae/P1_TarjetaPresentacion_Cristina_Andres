@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-// Fragmento de presentacion central
+// Fragmento de Presentacion central
 @Composable
 fun PresentacionCentral(modifier: Modifier = Modifier) {
     // Recurso de imagen del logo del Virgen de la Paloma
