@@ -1,8 +1,8 @@
 <resources>
     <string name="app_name">P1_TarjetaPresentacion_Cristina_Andres</string>
     <string name="descripcionImagenPaloma">Imagen de la Paloma</string>
-    <string name="nombre">Andrés López</string>
-    <string name="rol">Estudiante</string>
+    <string name="nombre">Cristina, Andrés</string>
+    <string name="rol">Estudiantes</string>
     <string name="telefono">+34 634 502 945</string>
     <string name="redesSociales">\@socialTarjeta</string>
     <string name="correo">tarjeta@gmail.com</string>
