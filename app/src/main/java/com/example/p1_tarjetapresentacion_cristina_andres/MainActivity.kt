@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -117,60 +118,67 @@ fun informacionContacto(modifier: Modifier = Modifier) {
 
     Column(verticalArrangement = Arrangement.Bottom,
         horizontalAlignment = Alignment.CenterHorizontally,
-        modifier = Modifier.fillMaxSize().padding(bottom = 25.dp)) {
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(bottom = 25.dp)) {
 
-        Row(verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center,
-            modifier = Modifier.padding(3.dp).fillMaxWidth()) {
-            Image(
-                painter = imagenTelefono,
-                contentDescription = null,
-                modifier = Modifier.height(35.dp).width(35.dp).padding(end = 12.dp)
-            )
+        Row {
+            Column() {
+                Image(
+                    painter = imagenTelefono,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .height(35.dp)
+                        .width(35.dp)
+                        .padding(end = 12.dp)
+                )
 
-            Text(
-                text = stringResource(R.string.telefono),
-                modifier = Modifier.width(160.dp),
-                fontFamily = fuente
-            )
-        }
+                Image(
+                    painter = imagenEnviar,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .height(35.dp)
+                        .width(35.dp)
+                        .padding(end = 12.dp)
+                )
 
-        Row(verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center,
-            modifier = Modifier.padding(3.dp).fillMaxWidth()) {
+                Image(
+                    painter = imagenCorreo,
+                    contentDescription = null,
+                    modifier = Modifier
+                        .height(35.dp)
+                        .width(35.dp)
+                        .padding(end = 12.dp)
+                )
 
-            Image(
-                painter = imagenEnviar,
-                contentDescription = null,
-                modifier = Modifier.height(35.dp).width(35.dp).padding(end = 12.dp)
-            )
+            }
 
-            Text(
-                text = stringResource(R.string.redesSociales),
-                modifier = Modifier.width(160.dp),
-                fontFamily = fuente
+            Column() {
+                Text(
+                    text = stringResource(R.string.telefono),
+                    fontFamily = fuente,
+                    modifier = Modifier.padding(top = 5.dp)
+                )
 
-            )
-        }
+                Spacer(Modifier.height(10.dp))
 
-        Row(verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.Center,
-            modifier = Modifier.padding(3.dp).fillMaxWidth()) {
+                Text(
+                    text = stringResource(R.string.redesSociales),
+                    fontFamily = fuente
 
-            Image(
-                painter = imagenCorreo,
-                contentDescription = null,
-                modifier = Modifier.height(35.dp).width(35.dp).padding(end = 12.dp)
-            )
+                )
 
-            Text(
-                text = stringResource(R.string.correo),
-                modifier = Modifier.width(160.dp),
-                fontFamily = fuente
-            )
+                Spacer(Modifier.height(10.dp))
+
+                Text(
+                    text = stringResource(R.string.correo),
+                    fontFamily = fuente
+                )
+            }
         }
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable
