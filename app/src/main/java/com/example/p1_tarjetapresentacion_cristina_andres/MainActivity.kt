@@ -157,7 +157,7 @@ fun informacionContacto(modifier: Modifier = Modifier) {
                 Text(
                     text = stringResource(R.string.telefono),
                     fontFamily = fuente,
-                    modifier = Modifier.padding(top = 5.dp)
+                    modifier = Modifier.padding(top = 6.5.dp)
                 )
 
                 Spacer(Modifier.height(10.dp))
