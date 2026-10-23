@@ -31,6 +31,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.p1_tarjetapresentacion_cristina_andres.ui.theme.P1_TarjetaPresentacion_Cristina_AndresTheme
 
+
+// TRABAJO REALIZADO POR CRISTINA XU Y ANDRÉS LÓPEZ
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
